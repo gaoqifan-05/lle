@@ -1,0 +1,22 @@
+# ================== 要忽略的内容 ==================
+datasets/
+test_datasets/
+Huawei/
+Nikon/
+low/
+normal/
+
+# ================== 其他常用忽略（推荐保留） ==================
+__pycache__/
+*.pth
+*.pt
+checkpoints/
+results/
+outputs/
+*.log
+.vscode/
+.idea/
+*.jpg
+*.png
+*.jpeg
+*.tiff
