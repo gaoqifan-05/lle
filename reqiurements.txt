@@ -4,3 +4,4 @@ torchaudio==2.0.0
 numpy==1.26.4
 mkl==2023.2.0
 dominate
+tqdm
