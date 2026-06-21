@@ -422,6 +422,9 @@ def collect_colie(model_cfg, dataset_cfg, cfg):
 
 def run_single(model_key, dataset_key, cfg):
     """对单个模型+数据集组合执行完整流程"""
+    import time
+    t_start = time.time()
+
     model_cfg = MODEL_CONFIG[model_key]
     dataset_cfg = DATASET_CONFIG[dataset_key]
 
@@ -432,7 +435,6 @@ def run_single(model_key, dataset_key, cfg):
     result_dir = RESULTS_DIR / model_key / dataset_key / 'images'
 
     if cfg.get('skip_inference'):
-        # 跳过推理，直接用已有结果计算指标
         print("[跳过] 推理已完成，直接计算指标...")
     else:
         # 1. 准备
@@ -468,9 +470,12 @@ def run_single(model_key, dataset_key, cfg):
         # 保存指标
         metrics_path = RESULTS_DIR / model_key / dataset_key / 'metrics.json'
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        elapsed = time.time() - t_start
         metrics['model'] = model_key
         metrics['dataset'] = dataset_key
         metrics['timestamp'] = timestamp
+        metrics['time_seconds'] = round(elapsed, 1)
+        metrics['time_str'] = f"{int(elapsed//60)}m{elapsed%60:.0f}s"
         with open(metrics_path, 'w') as f:
             json.dump(metrics, f, indent=2)
         print(f"  指标已保存到: {metrics_path}")
@@ -485,6 +490,8 @@ def run_single(model_key, dataset_key, cfg):
         print(f"  │  PSNR:   {psnr_str}     │")
         print(f"  │  SSIM:   {ssim_str}  │")
         print(f"  │  LPIPS:  {lpips_str}  │")
+        time_str = metrics.get('time_str', 'N/A')
+        print(f"  │  耗时:   {time_str}  │")
         print(f"  └{'─'*40}┘")
 
     return metrics
@@ -527,13 +534,14 @@ def main():
         print(f"\n{'='*70}")
         print(f"  汇总结果")
         print(f"{'='*70}")
-        print(f"  {'模型×数据集':<30} {'PSNR↑':>8} {'SSIM↑':>8} {'LPIPS↓':>8}")
-        print(f"  {'─'*30} {'─'*8} {'─'*8} {'─'*8}")
+        print(f"  {'模型×数据集':<30} {'PSNR↑':>8} {'SSIM↑':>8} {'LPIPS↓':>8} {'耗时':>10}")
+        print(f"  {'─'*30} {'─'*8} {'─'*8} {'─'*8} {'─'*10}")
         for key, m in all_metrics.items():
             psnr = f"{m['psnr_mean']:.2f}" if m['psnr_mean'] else 'N/A'
             ssim = f"{m['ssim_mean']:.4f}" if m['ssim_mean'] else 'N/A'
             lpips = f"{m['lpips_mean']:.4f}" if m['lpips_mean'] else 'N/A'
-            print(f"  {key:<30} {psnr:>8} {ssim:>8} {lpips:>8}")
+            t = m.get('time_str', 'N/A')
+            print(f"  {key:<30} {psnr:>8} {ssim:>8} {lpips:>8} {t:>10}")
 
         # 保存汇总
         summary_path = RESULTS_DIR / 'summary.json'

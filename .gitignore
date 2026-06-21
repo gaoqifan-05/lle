@@ -39,11 +39,15 @@ datasets/**/*.cr2
 datasets/**/*.nef
 
 # ─── 推理中间产物 ───
-test_dataset/testA/
-test_dataset/testB/
+benchmark/test_dataset/
 benchmark/**/ablation/
 benchmark/**/input/
 benchmark/**/output/
+benchmark/**/assets/
+benchmark/**/imgs/
+benchmark/**/figs/
+*.gif
+*.webp
 
 # ─── 结果图片（summary.json / metrics.json 不受影响）───
 results/**/images/
