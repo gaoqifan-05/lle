@@ -21,9 +21,15 @@ class SingleDataset(BaseDataset):
         A_path = self.A_paths[index]
 
         A_img = Image.open(A_path).convert('RGB')
-        A_size = A_img.size
-        A_size = A_size = (A_size[0]//16*16, A_size[1]//16*16)
-        A_img = A_img.resize(A_size, Image.BICUBIC)
+        # 等比降采样：长边对齐 fineSize，保持宽高比，不裁切
+        w, h = A_img.size
+        max_size = self.opt.fineSize
+        if max(w, h) > max_size:
+            scale = max_size / max(w, h)
+            w, h = int(w * scale), int(h * scale)
+        # 确保尺寸是 16 的倍数（网络下采样需要）
+        w, h = w // 16 * 16, h // 16 * 16
+        A_img = A_img.resize((w, h), Image.BICUBIC)
 
         A_img = self.transform(A_img)
 

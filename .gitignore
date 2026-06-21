@@ -1,22 +1,72 @@
-# ================== 要忽略的内容 ==================
-datasets/
-test_datasets/
-Huawei/
-Nikon/
-low/
-normal/
-
-# ================== 其他常用忽略（推荐保留） ==================
+# ─── Python ───
 __pycache__/
-*.pth
-*.pt
-checkpoints/
-results/
-outputs/
-*.log
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ─── 环境 / IDE ───
+.venv/
+venv/
 .vscode/
 .idea/
-*.jpg
-*.png
-*.jpeg
-*.tiff
+*.swp
+*.swo
+*~
+
+# ─── 模型权重 (太大不上传) ───
+checkpoints/
+benchmark/**/checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.pb
+
+# ─── 数据集照片 (保留文件夹结构，只忽略图片) ───
+datasets/**/*.jpg
+datasets/**/*.jpeg
+datasets/**/*.png
+datasets/**/*.bmp
+datasets/**/*.tif
+datasets/**/*.tiff
+datasets/**/*.webp
+datasets/**/*.gif
+datasets/**/*.raw
+datasets/**/*.dng
+datasets/**/*.cr2
+datasets/**/*.nef
+
+# ─── 推理中间产物 ───
+test_dataset/testA/
+test_dataset/testB/
+benchmark/**/ablation/
+benchmark/**/input/
+benchmark/**/output/
+
+# ─── 结果图片（summary.json / metrics.json 不受影响）───
+results/**/images/
+results/**/*.png
+results/**/*.jpg
+results/**/*.jpeg
+results/**/*.bmp
+
+# ─── 日志 / 临时文件 ───
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# ══════════════════════════════════════════════════════
+#  例外：以下文件必须上传
+# ══════════════════════════════════════════════════════
+!**/summary.json
+!**/metrics.json
+!**/opt.txt
+!**/loss_log.txt
+!**/info.txt
+!**/generation_info.txt
+!**/README.md
+!**/LICENSE
+!**/structure.txt

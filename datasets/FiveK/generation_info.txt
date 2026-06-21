@@ -1,0 +1,6 @@
+method: gamma
+method_desc: gamma=5.0
+total_images: 5000
+train_pairs: 4500
+test_pairs: 500
+seed: 42

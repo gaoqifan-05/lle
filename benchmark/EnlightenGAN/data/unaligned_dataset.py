@@ -60,10 +60,10 @@ class UnalignedDataset(BaseDataset):
         self.dir_A = os.path.join(opt.dataroot, opt.phase + 'A')
         self.dir_B = os.path.join(opt.dataroot, opt.phase + 'B')
 
-        # self.A_paths = make_dataset(self.dir_A)
-        # self.B_paths = make_dataset(self.dir_B)
-        self.A_imgs, self.A_paths = store_dataset(self.dir_A)
-        self.B_imgs, self.B_paths = store_dataset(self.dir_B)
+        self.A_paths = make_dataset(self.dir_A)
+        self.B_paths = make_dataset(self.dir_B)
+        # self.A_imgs, self.A_paths = store_dataset(self.dir_A)
+        # self.B_imgs, self.B_paths = store_dataset(self.dir_B)
 
         # self.A_paths = sorted(self.A_paths)
         # self.B_paths = sorted(self.B_paths)
@@ -73,15 +73,15 @@ class UnalignedDataset(BaseDataset):
         self.transform = get_transform(opt)
 
     def __getitem__(self, index):
-        # A_path = self.A_paths[index % self.A_size]
-        # B_path = self.B_paths[index % self.B_size]
-
-        # A_img = Image.open(A_path).convert('RGB')
-        # B_img = Image.open(B_path).convert('RGB')
-        A_img = self.A_imgs[index % self.A_size]
-        B_img = self.B_imgs[index % self.B_size]
         A_path = self.A_paths[index % self.A_size]
         B_path = self.B_paths[index % self.B_size]
+
+        A_img = Image.open(A_path).convert('RGB')
+        B_img = Image.open(B_path).convert('RGB')
+        # A_img = self.A_imgs[index % self.A_size]
+        # B_img = self.B_imgs[index % self.B_size]
+        # A_path = self.A_paths[index % self.A_size]
+        # B_path = self.B_paths[index % self.B_size]
         # A_size = A_img.size
         # B_size = B_img.size
         # A_size = A_size = (A_size[0]//16*16, A_size[1]//16*16)

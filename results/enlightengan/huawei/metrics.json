@@ -1,0 +1,12 @@
+{
+  "count": 500,
+  "psnr_mean": 17.756139570929292,
+  "psnr_std": 2.9096221899345007,
+  "ssim_mean": 0.6133167951455198,
+  "ssim_std": 0.1367687932690786,
+  "lpips_mean": 0.3542939268350601,
+  "lpips_std": 0.11058446436308822,
+  "model": "enlightengan",
+  "dataset": "huawei",
+  "timestamp": "2026-06-21 17:57:01"
+}
