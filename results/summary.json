@@ -1,26 +1,74 @@
 {
+  "enlightengan/fivek": {
+    "count": 500,
+    "psnr_mean": 15.068388154109792,
+    "psnr_std": 1.6545571654762516,
+    "ssim_mean": 0.4094824642982389,
+    "ssim_std": 0.13546745180219996,
+    "lpips_mean": 0.46008609229326247,
+    "lpips_std": 0.1066238284505856,
+    "model": "enlightengan",
+    "dataset": "fivek",
+    "timestamp": "2026-06-21 17:53:14"
+  },
+  "enlightengan/huawei": {
+    "count": 500,
+    "psnr_mean": 17.756139570929292,
+    "psnr_std": 2.9096221899345007,
+    "ssim_mean": 0.6133167951455198,
+    "ssim_std": 0.1367687932690786,
+    "lpips_mean": 0.3542939268350601,
+    "lpips_std": 0.11058446436308822,
+    "model": "enlightengan",
+    "dataset": "huawei",
+    "timestamp": "2026-06-21 17:57:01"
+  },
+  "enlightengan/nikon": {
+    "count": 500,
+    "psnr_mean": 16.02874215846271,
+    "psnr_std": 2.8926624472957996,
+    "ssim_mean": 0.4990543314306571,
+    "ssim_std": 0.16242154036192674,
+    "lpips_mean": 0.38436898291110994,
+    "lpips_std": 0.11954489901424278,
+    "model": "enlightengan",
+    "dataset": "nikon",
+    "timestamp": "2026-06-21 18:00:53"
+  },
+  "colie/fivek": {
+    "count": 500,
+    "psnr_mean": 11.83240022292304,
+    "psnr_std": 1.9075265163932733,
+    "ssim_mean": 0.2999893428820479,
+    "ssim_std": 0.12446305164623632,
+    "lpips_mean": 0.4563227689266205,
+    "lpips_std": 0.09853816108203857,
+    "model": "colie",
+    "dataset": "fivek",
+    "timestamp": "2026-06-21 18:17:43"
+  },
   "colie/huawei": {
     "count": 500,
-    "psnr_mean": 13.649424352427149,
-    "psnr_std": 3.3553078997789125,
-    "ssim_mean": 0.48565205561163893,
-    "ssim_std": 0.16766333086363674,
-    "lpips_mean": 0.41070798349380494,
-    "lpips_std": 0.1183326297799034,
+    "psnr_mean": 14.803411683511579,
+    "psnr_std": 3.7783676604198906,
+    "ssim_mean": 0.5438579517139195,
+    "ssim_std": 0.17386310358156395,
+    "lpips_mean": 0.3713884854018688,
+    "lpips_std": 0.11280412390932351,
     "model": "colie",
     "dataset": "huawei",
-    "timestamp": "2026-06-21 16:34:07"
+    "timestamp": "2026-06-21 18:29:41"
   },
   "colie/nikon": {
     "count": 500,
-    "psnr_mean": 13.441249413767322,
-    "psnr_std": 3.430133790961737,
-    "ssim_mean": 0.4460406740727016,
-    "ssim_std": 0.15795922256440448,
-    "lpips_mean": 0.4551274471580982,
-    "lpips_std": 0.1279795422832635,
+    "psnr_mean": 14.069641661076636,
+    "psnr_std": 3.639055172414577,
+    "ssim_mean": 0.4732741188659264,
+    "ssim_std": 0.16965853622752722,
+    "lpips_mean": 0.3924118468761444,
+    "lpips_std": 0.1185667802699865,
     "model": "colie",
     "dataset": "nikon",
-    "timestamp": "2026-06-21 16:47:14"
+    "timestamp": "2026-06-21 18:41:40"
   }
 }
