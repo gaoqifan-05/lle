@@ -26,4 +26,9 @@ datasets/
         ├── val/          ← 500张 (10类×50)
         ├── test_day/     ← 2,500张 (10类×250)
         └── test_night/   ← 2,500张 (10类×250)
-
+└── DarkFace/
+    ├── image/            ← 6000张 低光人脸 (.png)
+    ├── label/            ← 6000个 bbox 标注 (x1,y1,x2,y2)
+    ├── train.txt         ← 4200张 训练集 ID
+    ├── test.txt          ← 1800张 测试集 ID (seed=42)
+    └── info.txt

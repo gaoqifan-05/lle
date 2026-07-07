@@ -1,0 +1,13 @@
+DarkFace Dataset
+================
+低光人脸检测基准数据集
+
+来源: https://www.kaggle.com/datasets/soumikrakshit/dark-face-dataset
+
+统计:
+  总图片: 6000 张 (.png)
+  训练集: 4200 张 (train.txt)
+  测试集: 1800 张 (test.txt, seed=42 随机采样)
+  标注格式: label/{id}.txt
+    第一行: 人脸数 N
+    后续 N 行: x1 y1 x2 y2 (bounding box, 像素坐标)
